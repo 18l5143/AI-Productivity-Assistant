@@ -1,5 +1,5 @@
-import { createFileRoute, useServerFn } from "@tanstack/react-start";
-import { createFileRoute as _crf } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Copy, RefreshCw, Trash2, Loader2, Mail } from "lucide-react";
 import { toast } from "sonner";
