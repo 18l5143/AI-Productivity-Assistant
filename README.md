@@ -1,29 +1,104 @@
-# Welcome to your Lovable project
+# AI Workplace Productivity Assistant
 
-This project was built with [Lovable](https://lovable.dev).
+## Project Overview
 
-## Build with Lovable
+AI Workplace Productivity Assistant is a modern web application designed to help professionals improve their workplace productivity using AI.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+The application provides three main AI-powered tools that assist users with common workplace tasks:
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- Generating professional emails
+- Summarizing meeting notes
+- Planning and prioritizing daily or weekly tasks
 
-## Development
+The application uses a clean, responsive SaaS-style dashboard and does not require a database or user account system. User inputs and generated outputs are handled during the current session.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Features Implemented
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+### 1. Smart Email Generator
 
-## Built with
+Users can generate professional workplace emails by providing information about the purpose and key points of the email.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+Features include:
+
+- Generate professional emails using AI
+- Select different writing tones:
+  - Formal
+  - Friendly
+  - Persuasive
+- Editable AI-generated email output
+- Copy generated email
+- Regenerate email
+- Clear input and output
+
+### 2. Meeting Notes Summarizer
+
+Users can paste lengthy meeting notes and generate a structured summary.
+
+The AI output includes:
+
+- Meeting Summary
+- Key Discussion Points
+- Decisions Made
+- Action Items
+- Deadlines
+
+Users can edit the generated results and copy or regenerate the output.
+
+### 3. AI Task Planner / Scheduler
+
+Users can enter their tasks, deadlines, and available working hours to create an organized schedule.
+
+Features include:
+
+- Generate daily schedules
+- Generate weekly schedules
+- Prioritize important and urgent tasks
+- Organize tasks into realistic time blocks
+- Consider task deadlines
+- Edit generated schedules
+
+### 4. Responsive Dashboard
+
+The application includes:
+
+- Modern SaaS-style dashboard
+- Sidebar navigation
+- Responsive design for desktop, tablet, and mobile
+- Easy navigation between AI productivity tools
+- Clean and professional user interface
+
+### 5. Responsible AI
+
+The application includes a Responsible AI disclaimer informing users that AI-generated content may contain errors or inaccuracies.
+
+Users are encouraged to review and verify AI-generated emails, meeting summaries, decisions, deadlines, and schedules before using them in professional situations.
+
+## Technologies and Tools Used
+
+- **Lovable** – Used to build and develop the web application
+- **AI / Generative AI** – Used for email generation, meeting summarization, and task scheduling
+- **HTML** – Structure of the web application
+- **CSS** – Styling and responsive design
+- **JavaScript / TypeScript** – Application functionality and interactions
+- **React** – Frontend user interface
+- **GitHub** – Source code management and project hosting
+
+> Note: The application does not use a database or authentication system. User data is handled temporarily during the current session.
+
+## Setup Instructions
+
+### Prerequisites
+
+To run or modify the project, you may need:
+
+- A modern web browser such as Google Chrome, Microsoft Edge, or Firefox
+- Node.js and npm (if running the project locally)
+- Git
+- A GitHub account
+
+### Clone the Repository
+
+Clone the project from GitHub:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
