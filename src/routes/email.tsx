@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { generateAI } from "@/lib/ai.functions";
 
-export const Route = _crf("/email")({
+export const Route = createFileRoute("/email")({
   head: () => ({
     meta: [
       { title: "Smart Email Generator — WorkAssist AI" },
@@ -182,4 +182,3 @@ function EmailPage() {
 }
 
 // keep createFileRoute unused import silenced
-void createFileRoute;
