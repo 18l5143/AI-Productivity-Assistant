@@ -5,6 +5,7 @@ import { Copy, RefreshCw, Loader2, CalendarClock, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import { AppShell } from "@/components/app-shell";
+import { ToolPageHeader } from "@/components/tool-page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -90,17 +91,7 @@ function PlannerPage() {
 
   return (
     <AppShell title="AI Task Planner">
-      <div className="mb-6 flex items-start gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-          <CalendarClock className="h-5 w-5" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-foreground">AI Task Planner</h2>
-          <p className="text-sm text-muted-foreground">
-            List your tasks, deadlines, and hours — get a realistic prioritized schedule.
-          </p>
-        </div>
-      </div>
+      <ToolPageHeader icon={CalendarClock} title="AI Task Planner" description="List your tasks, deadlines, and hours — get a realistic prioritized schedule." />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="glass-card border-0 shadow-none">

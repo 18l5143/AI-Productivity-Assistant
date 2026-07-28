@@ -5,6 +5,7 @@ import { Copy, RefreshCw, Trash2, Loader2, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 import { AppShell } from "@/components/app-shell";
+import { ToolPageHeader } from "@/components/tool-page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -91,17 +92,7 @@ function EmailPage() {
 
   return (
     <AppShell title="Smart Email Generator">
-      <div className="mb-6 flex items-start gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-          <Mail className="h-5 w-5" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-foreground">Smart Email Generator</h2>
-          <p className="text-sm text-muted-foreground">
-            Give a topic, some key points, and a tone. Get a ready-to-send email.
-          </p>
-        </div>
-      </div>
+      <ToolPageHeader icon={Mail} title="Smart Email Generator" description="Give a topic, some key points, and a tone. Get a ready-to-send email." />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="glass-card border-0 shadow-none">
