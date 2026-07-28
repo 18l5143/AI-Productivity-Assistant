@@ -100,7 +100,7 @@ function NotesPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
+        <Card className="glass-card border-0 shadow-none">
           <CardHeader>
             <CardTitle>Raw meeting notes</CardTitle>
           </CardHeader>
@@ -117,11 +117,12 @@ function NotesPage() {
               />
             </div>
             <div className="flex flex-wrap gap-2">
-              <Button onClick={generate} disabled={loading}>
+              <Button className="gradient-surface rounded-xl border-0 text-primary-foreground shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[var(--shadow-lift)]" onClick={generate} disabled={loading}>
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Summarize"}
               </Button>
               <Button
                 variant="outline"
+                className="rounded-xl"
                 onClick={() => {
                   setNotes("");
                   setOutput("");
@@ -134,7 +135,7 @@ function NotesPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="glass-card border-0 shadow-none">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Structured summary</CardTitle>
             <div className="flex gap-2">
@@ -152,7 +153,7 @@ function NotesPage() {
               onChange={(e) => setOutput(e.target.value)}
               placeholder="Your structured summary will appear here. You can edit it before copying."
               rows={20}
-              className="font-mono text-sm"
+              className="rounded-xl bg-background/60 font-mono text-sm"
             />
           </CardContent>
         </Card>

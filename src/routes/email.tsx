@@ -104,7 +104,7 @@ function EmailPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
+        <Card className="glass-card border-0 shadow-none">
           <CardHeader>
             <CardTitle>Inputs</CardTitle>
           </CardHeader>
@@ -144,17 +144,17 @@ function EmailPage() {
               </Select>
             </div>
             <div className="flex flex-wrap gap-2 pt-2">
-              <Button onClick={generate} disabled={loading}>
+              <Button className="gradient-surface rounded-xl border-0 text-primary-foreground shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[var(--shadow-lift)]" onClick={generate} disabled={loading}>
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Generate email"}
               </Button>
-              <Button variant="outline" onClick={clear} disabled={loading}>
+              <Button variant="outline" className="rounded-xl" onClick={clear} disabled={loading}>
                 <Trash2 className="h-4 w-4" /> Clear
               </Button>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="glass-card border-0 shadow-none">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Generated email</CardTitle>
             <div className="flex gap-2">
@@ -172,7 +172,7 @@ function EmailPage() {
               onChange={(e) => setOutput(e.target.value)}
               placeholder="Your generated email will appear here. You can edit it before copying."
               rows={20}
-              className="font-mono text-sm"
+              className="rounded-xl bg-background/60 font-mono text-sm"
             />
           </CardContent>
         </Card>
