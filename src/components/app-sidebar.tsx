@@ -24,29 +24,38 @@ export function AppSidebar() {
   const currentPath = useRouterState({ select: (r) => r.location.pathname });
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="border-r border-border/60">
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <Sparkles className="h-4 w-4" />
+        <div className="flex items-center gap-3 px-2 py-4">
+          <div className="gradient-surface flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-primary-foreground shadow-[var(--shadow-soft)]">
+            <Sparkles className="h-4.5 w-4.5" />
           </div>
           <div className="flex flex-col group-data-[collapsible=icon]:hidden">
-            <span className="text-sm font-semibold leading-tight">WorkAssist AI</span>
-            <span className="text-xs text-muted-foreground leading-tight">Productivity suite</span>
+            <span className="font-display text-sm font-semibold leading-tight tracking-tight">
+              WorkAssist AI
+            </span>
+            <span className="text-xs leading-tight text-muted-foreground">Productivity suite</span>
           </div>
         </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Workspace</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-[0.7rem] font-semibold uppercase tracking-wider">
+            Workspace
+          </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="gap-1">
               {items.map((item) => {
                 const isActive =
                   item.url === "/" ? currentPath === "/" : currentPath.startsWith(item.url);
                 return (
                   <SidebarMenuItem key={item.url}>
-                    <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={isActive}
+                      tooltip={item.title}
+                      className="rounded-xl transition-all duration-300 hover:translate-x-0.5 data-[active=true]:bg-accent data-[active=true]:text-accent-foreground data-[active=true]:shadow-[var(--shadow-soft)]"
+                    >
                       <Link to={item.url}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>

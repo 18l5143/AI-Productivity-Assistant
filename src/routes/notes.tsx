@@ -5,6 +5,7 @@ import { Copy, RefreshCw, Loader2, FileText, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import { AppShell } from "@/components/app-shell";
+import { ToolPageHeader } from "@/components/tool-page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -87,20 +88,10 @@ function NotesPage() {
 
   return (
     <AppShell title="Meeting Notes Summarizer">
-      <div className="mb-6 flex items-start gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-          <FileText className="h-5 w-5" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-foreground">Meeting Notes Summarizer</h2>
-          <p className="text-sm text-muted-foreground">
-            Paste raw notes and get a structured summary with decisions, action items, and deadlines.
-          </p>
-        </div>
-      </div>
+      <ToolPageHeader icon={FileText} title="Meeting Notes Summarizer" description="Paste raw notes and get a structured summary with decisions, action items, and deadlines." />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle>Raw meeting notes</CardTitle>
           </CardHeader>
@@ -117,11 +108,12 @@ function NotesPage() {
               />
             </div>
             <div className="flex flex-wrap gap-2">
-              <Button onClick={generate} disabled={loading}>
+              <Button className="gradient-surface rounded-xl border-0 text-primary-foreground shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[var(--shadow-lift)]" onClick={generate} disabled={loading}>
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Summarize"}
               </Button>
               <Button
                 variant="outline"
+                className="rounded-xl"
                 onClick={() => {
                   setNotes("");
                   setOutput("");
@@ -134,7 +126,7 @@ function NotesPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="glass-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Structured summary</CardTitle>
             <div className="flex gap-2">
@@ -152,7 +144,7 @@ function NotesPage() {
               onChange={(e) => setOutput(e.target.value)}
               placeholder="Your structured summary will appear here. You can edit it before copying."
               rows={20}
-              className="font-mono text-sm"
+              className="rounded-xl bg-background/60 font-mono text-sm"
             />
           </CardContent>
         </Card>

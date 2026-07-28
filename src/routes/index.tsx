@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, FileText, CalendarClock, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, FileText, CalendarClock, ArrowRight, Sparkles, Zap, ShieldCheck } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import heroArt from "@/assets/ai-hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,59 +30,107 @@ const tools = [
     description: "Draft professional emails in the right tone from a few key points.",
     icon: Mail,
     to: "/email" as const,
-    accent: "from-blue-500/10 to-blue-500/0",
   },
   {
     title: "Meeting Notes Summarizer",
     description: "Turn raw meeting notes into a structured recap with action items.",
     icon: FileText,
     to: "/notes" as const,
-    accent: "from-emerald-500/10 to-emerald-500/0",
   },
   {
     title: "AI Task Planner",
     description: "Prioritize your tasks into a realistic daily or weekly schedule.",
     icon: CalendarClock,
     to: "/planner" as const,
-    accent: "from-violet-500/10 to-violet-500/0",
   },
+];
+
+const highlights = [
+  { icon: Zap, label: "Instant drafts", detail: "Results in seconds" },
+  { icon: ShieldCheck, label: "No invented facts", detail: "Grounded in your input" },
+  { icon: Sparkles, label: "Fully editable", detail: "Refine before you send" },
 ];
 
 function Dashboard() {
   return (
     <AppShell title="Dashboard">
-      <section className="mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1 text-xs text-muted-foreground">
-          <Sparkles className="h-3.5 w-3.5" />
-          AI Workplace Productivity Assistant
+      <section className="glass-card relative mb-10 overflow-hidden px-6 py-10 md:px-10 md:py-12">
+        <div className="pointer-events-none absolute inset-0 bg-[var(--gradient-soft)]" />
+        <div className="relative grid items-center gap-8 md:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              AI Workplace Productivity Assistant
+            </div>
+            <h2 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-5xl">
+              Do more of your <span className="gradient-text">best work.</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              A premium AI workspace for writing, summarizing, and planning. Pick a tool to get
+              started — your work stays in this session and is never saved.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="gradient-surface rounded-xl border-0 text-primary-foreground shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 hover:shadow-[var(--shadow-lift)]"
+              >
+                <Link to="/email">
+                  Start writing
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-xl bg-background/60 backdrop-blur transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <Link to="/planner">Plan my day</Link>
+              </Button>
+            </div>
+          </div>
+          <img
+            src={heroArt}
+            alt="Abstract 3D illustration of glass panels, gradient ribbons and an AI neural network"
+            width={1200}
+            height={912}
+            className="mx-auto w-full max-w-md drop-shadow-xl"
+          />
         </div>
-        <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-          Do more of your best work.
-        </h2>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          Pick a tool below to get started. Your work stays in this session — nothing is saved.
-        </p>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mb-10 grid gap-4 sm:grid-cols-3">
+        {highlights.map((h) => (
+          <div key={h.label} className="glass-card flex items-center gap-3 px-4 py-4">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--gradient-soft)] text-primary">
+              <h.icon className="h-4 w-4" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">{h.label}</p>
+              <p className="text-xs text-muted-foreground">{h.detail}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {tools.map((tool) => (
           <Link key={tool.to} to={tool.to} className="group">
-            <Card className="h-full transition-all hover:shadow-md hover:-translate-y-0.5 relative overflow-hidden">
-              <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tool.accent}`}
-              />
+            <Card className="glass-card hover-lift relative h-full overflow-hidden">
+              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 bg-[var(--gradient-soft)] group-hover:opacity-100" />
               <CardHeader className="relative">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="gradient-surface flex h-11 w-11 items-center justify-center rounded-2xl text-primary-foreground shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:scale-105">
                   <tool.icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="mt-3">{tool.title}</CardTitle>
-                <CardDescription>{tool.description}</CardDescription>
+                <CardTitle className="mt-4 text-lg">{tool.title}</CardTitle>
+                <CardDescription className="leading-relaxed">{tool.description}</CardDescription>
               </CardHeader>
               <CardContent className="relative">
-                <Button variant="ghost" size="sm" className="px-0 text-primary">
+                <span className="inline-flex items-center text-sm font-semibold text-primary">
                   Open
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Button>
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </CardContent>
             </Card>
           </Link>
