@@ -158,5 +158,54 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 }
+
+@utility glass-card {
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid color-mix(in oklab, var(--brand) 12%, var(--border));
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+@utility hover-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@utility gradient-text {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-surface {
+  background-image: var(--gradient-brand);
+}
+
+@utility app-canvas {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(60rem 40rem at 10% -10%, color-mix(in oklab, var(--brand) 12%, transparent), transparent 60%),
+    radial-gradient(50rem 36rem at 95% 0%, color-mix(in oklab, var(--brand-2) 12%, transparent), transparent 60%);
+}
+
