@@ -94,7 +94,7 @@ function PlannerPage() {
       <ToolPageHeader icon={CalendarClock} title="AI Task Planner" description="List your tasks, deadlines, and hours — get a realistic prioritized schedule." />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle>Your plan inputs</CardTitle>
           </CardHeader>
@@ -157,7 +157,7 @@ function PlannerPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Your schedule</CardTitle>
             <div className="flex gap-2">

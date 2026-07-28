@@ -117,7 +117,7 @@ function Dashboard() {
       <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {tools.map((tool) => (
           <Link key={tool.to} to={tool.to} className="group">
-            <Card className="glass-card hover-lift relative h-full overflow-hidden border-0 shadow-none">
+            <Card className="glass-card hover-lift relative h-full overflow-hidden">
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 bg-[var(--gradient-soft)] group-hover:opacity-100" />
               <CardHeader className="relative">
                 <div className="gradient-surface flex h-11 w-11 items-center justify-center rounded-2xl text-primary-foreground shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:scale-105">

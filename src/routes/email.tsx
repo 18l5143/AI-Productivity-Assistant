@@ -95,7 +95,7 @@ function EmailPage() {
       <ToolPageHeader icon={Mail} title="Smart Email Generator" description="Give a topic, some key points, and a tone. Get a ready-to-send email." />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle>Inputs</CardTitle>
           </CardHeader>
@@ -145,7 +145,7 @@ function EmailPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Generated email</CardTitle>
             <div className="flex gap-2">

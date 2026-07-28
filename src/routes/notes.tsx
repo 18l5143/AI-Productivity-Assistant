@@ -91,7 +91,7 @@ function NotesPage() {
       <ToolPageHeader icon={FileText} title="Meeting Notes Summarizer" description="Paste raw notes and get a structured summary with decisions, action items, and deadlines." />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle>Raw meeting notes</CardTitle>
           </CardHeader>
@@ -126,7 +126,7 @@ function NotesPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card border-0 shadow-none">
+        <Card className="glass-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle>Structured summary</CardTitle>
             <div className="flex gap-2">
